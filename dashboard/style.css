@@ -1,0 +1,8 @@
+.nav-pills .nav-link.active{
+    background-color:rgb(187, 184, 211);
+}
+
+.card{
+    border:none;
+    box-shadow: 2px 3px 4px 2px #e6e6e6;
+}

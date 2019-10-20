@@ -1,0 +1,16 @@
+
+nav.navbar{
+    background-color: #01134e !important;
+}
+
+button{
+    background-color: #01134e !important;
+    color: #fff !important;
+}
+.card{
+    border-radius: 7px;;
+}
+img#admin{
+    width: 100px;
+    height:100px;
+}

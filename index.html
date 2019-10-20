@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel Billing System</title>
+    <script src="assets/jquery.js"></script>
+    <script src="assets/bootstrap4/popper.js"></script>
+    <script src="assets/bootstrap4/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/bootstrap4/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+<body>
+       <div class="container-fluid" style="margin-top: 100px">
+           <div class="row">
+               <div class="col-md-4 mx-auto">
+                   <div class="card shadow-lg pt-5 pb-5">
+                       <div class="card-body">
+                           <div class="text-center" id="feed">
+                               
+                           </div>
+                           <div class="text-center pb-3">
+                               <img src="assets/images/admin.png" id="admin" />
+                               <p class="text-center" style="padding:0;margin:0"><strong>Hotel Billing System</strong></p>
+                               <span class="text-center" style="padding:0;margin:0"><small>Admin Login</small></span>
+                           </div>
+                           <form id="form">
+                               <div class="form-group">
+                                   <input type="text" class="form-control" value="toyosioyelayo@gmail.com" id="username" placeholder="Username here" required />
+                               </div>
+
+                               <div class="form-group">
+                                    <input type="password" class="form-control" id="password" placeholder="password here" required />
+                                </div>
+
+                                <div class="form-group pt-3">
+                                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                </div>
+                           </form>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    <script>
+        $('#form').submit(function(e){
+            e.preventDefault();
+            let username = $('#username').val();
+            let password = $("#password").val();
+            $.post('handler.php',{ username, password, request: 'login' }, function(res){
+                res = JSON.parse(res);
+                if(res.success){
+                    location.href = "dashboard/";
+                }else{
+                    $('#feed').html("<div class='alert alert-danger'>Invalid Login</div>");
+                }
+            })
+        }); 
+    </script>
+</body>
+</html>
